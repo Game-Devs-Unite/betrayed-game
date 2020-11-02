@@ -1,0 +1,23 @@
+CPP = x86_64-w64-mingw32-g++
+LINKER = x86_64-w64-mingw32-g++
+
+CPPFLAGS = -I ../win32/include
+LINKFLAGS = -L ../win32/lib -lmingw32 -lSDL2main -lSDL2
+
+SOURCES = $(wildcard *.cpp)
+OBJECTS = $(patsubst %.cpp, %.o, $(SOURCES))
+
+TARGET = ./Betrayed.exe
+
+.phony: all clean run
+
+all: $(TARGET)
+
+$(TARGET): $(OBJECTS)
+	$(LINKER) $< -o $@ $(LINKFLAGS)
+	
+$(OBJECTS): $(SOURCES)
+	$(CPP) -c $< $(CPPFLAGS)
+
+clean:
+	rm $(OBJECTS)

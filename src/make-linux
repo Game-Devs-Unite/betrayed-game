@@ -1,0 +1,22 @@
+CPP = g++
+LINKER = g++
+
+LINKFLAGS = -lSDL2
+
+SOURCES = $(wildcard *.cpp)
+OBJECTS = $(patsubst %.cpp, %.o, $(SOURCES))
+
+TARGET = ./Betrayed.out
+
+.phony: all clean run
+
+all: $(TARGET)
+
+$(TARGET): $(OBJECTS)
+	$(LINKER) $< -o $@ $(LINKFLAGS)
+	
+$(OBJECTS): $(SOURCES)
+	$(CPP) -c $<
+
+clean:
+	rm $(OBJECTS)
