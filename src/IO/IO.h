@@ -1,7 +1,6 @@
 #include <string>
 
-// Easy to use API for various IO from GFX, to sound, kayboard, and mouse.
-// All resources are internally managed to only have one copy per filePath.
+// Easy to use API for various IO from GFX, to sound, kayboard, mouse ect.
 namespace IO {
     enum class MOUSE_BUTTON {
         LEFT,
@@ -19,4 +18,8 @@ namespace IO {
 
     bool isKeyPressed(char key);
     bool isMousePressed(MOUSE_BUTTON button);
+
+    void appStart();
+    void appUpdate();
+    void appEnd();
 }
