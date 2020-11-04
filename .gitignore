@@ -39,3 +39,6 @@
 /.idea/modules.xml
 /.idea/vcs.xml
 /.idea/.gitignore
+
+# Meson stuff
+bld/*
